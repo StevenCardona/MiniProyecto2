@@ -166,8 +166,8 @@ public class PlayerInfoView extends javax.swing.JPanel {
         Player player2 = new Player(name2, Figure.X.name());
         
         ArrayList<Player> players = new ArrayList<Player>();
-        players.add(player2);
         players.add(player1);
+        players.add(player2);
         
         GameView view = new GameView(containerPanel, numberOfRounds, players);
         view.setSize(800, 450);

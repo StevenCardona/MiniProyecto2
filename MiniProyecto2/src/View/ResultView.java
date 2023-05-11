@@ -5,6 +5,7 @@
  */
 package View;
 
+import Controller.Game;
 import java.awt.BorderLayout;
 import javax.swing.JPanel;
 
@@ -13,13 +14,22 @@ import javax.swing.JPanel;
  * @author Steven.cardona
  */
 public class ResultView extends javax.swing.JPanel {
-
     /**
      * Creates new form ResultView
      */
-    public ResultView(JPanel container) {
+    public ResultView(JPanel container, Game game, String winner, String scorePlayer1, String scorePlayer2) {
         initComponents();
         this.containerPanel = container;
+        this.game = game;
+        
+        
+        labelScorePlayerOne.setText(scorePlayer1);
+        labelScorePlayerTwo.setText(scorePlayer2);
+        namePlayerTwo.setText(game.getPlayers().get(1).getName());
+        namePlayerOne.setText(game.getPlayers().get(0).getName());
+        nameWinnerPlayer.setText(winner);
+        
+        game.getFinalWinner();
     }
 
     /**
@@ -34,7 +44,7 @@ public class ResultView extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         nameWinnerPlayer = new javax.swing.JLabel();
         namePlayerOne = new javax.swing.JLabel();
-        namePlayer2 = new javax.swing.JLabel();
+        namePlayerTwo = new javax.swing.JLabel();
         btnHome = new javax.swing.JButton();
         labelScorePlayerOne = new javax.swing.JLabel();
         labelScorePlayerTwo = new javax.swing.JLabel();
@@ -53,8 +63,8 @@ public class ResultView extends javax.swing.JPanel {
         namePlayerOne.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         namePlayerOne.setText("JUGADOR 1");
 
-        namePlayer2.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        namePlayer2.setText("JUGADOR 2");
+        namePlayerTwo.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        namePlayerTwo.setText("JUGADOR 2");
 
         btnHome.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnHome.setText("INICIO");
@@ -93,7 +103,7 @@ public class ResultView extends javax.swing.JPanel {
                         .addGap(106, 106, 106)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(namePlayerOne)
-                            .addComponent(namePlayer2))
+                            .addComponent(namePlayerTwo))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(labelScorePlayerTwo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -113,11 +123,11 @@ public class ResultView extends javax.swing.JPanel {
                     .addComponent(labelScorePlayerOne, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(42, 42, 42)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(namePlayer2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(namePlayerTwo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(labelScorePlayerTwo, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnHome, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(34, 34, 34))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -134,13 +144,14 @@ public class ResultView extends javax.swing.JPanel {
     }//GEN-LAST:event_btnHomeActionPerformed
 
     private JPanel containerPanel;
+    private Game game;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnHome;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel labelScorePlayerOne;
     private javax.swing.JLabel labelScorePlayerTwo;
-    private javax.swing.JLabel namePlayer2;
     private javax.swing.JLabel namePlayerOne;
+    private javax.swing.JLabel namePlayerTwo;
     private javax.swing.JLabel nameWinnerPlayer;
     // End of variables declaration//GEN-END:variables
 }

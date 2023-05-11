@@ -39,10 +39,26 @@ public class Attempt {
         return currentPlayer;
     }
 
-    public void nextTurn() {
-        ArrayList<Player> copyPlayers = (ArrayList<Player>) players.clone();
-        copyPlayers.remove(currentPlayer);
-        currentPlayer = copyPlayers.get(0);
+    public Player nextTurn(Player currentPlayer) {
+        if (players.indexOf(currentPlayer) == 0) {
+            setCurrentPlayer(players.get(1));
+            return players.get(1);
+        } else {
+            setCurrentPlayer(players.get(0));
+            return players.get(0);
+        }
+    }
+
+    public void setPlayerWinner(Player playerWinner) {
+        this.playerWinner = playerWinner;
+    }
+
+    public Player getPlayerWinner() {
+        return playerWinner;
+    }
+
+    public void setCurrentPlayer(Player currentPlayer) {
+        this.currentPlayer = currentPlayer;
     }
 
     public void setSymbolInBoard(String symbol, int posX, int posY) {

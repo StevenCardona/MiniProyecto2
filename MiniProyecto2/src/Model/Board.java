@@ -20,21 +20,6 @@ public class Board {
     public void setFigure(final int x, final int y, final String figure) throws InvalidPointException {
         if (checkCoordinates(x, y)) {
             figures[x][y] = figure;
-                System.out.println("--");
-                System.out.println("");
-
-            for (String[] figure1 : figures) {
-                System.out.println("");
-
-                for (String s : figure1) {
-                    System.out.print(s + "  ");
-
-                }
-                System.out.println("");
-            }
-                System.out.println("");
-                System.out.println("--");
-
         } else {
             throw new InvalidPointException();
         }
@@ -43,6 +28,14 @@ public class Board {
     public String getFigure(final int x, final int y) throws InvalidPointException {
         if (checkCoordinates(x, y)) {
             return figures[x][y];
+        } else {
+            throw new InvalidPointException();
+        }
+    }
+
+    public String[] getRow(final int x) throws InvalidPointException {
+        if (checkCoordinate(x)) {
+            return figures[x];
         } else {
             throw new InvalidPointException();
         }
@@ -66,7 +59,6 @@ public class Board {
 
     @Override
     public String toString() {
-
         return "Board{" + "figures=" + figures[0] + " " + figures[1] + figures[2] + '}';
     }
 }

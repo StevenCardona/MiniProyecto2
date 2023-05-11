@@ -18,6 +18,7 @@ import java.util.logging.Logger;
  * @author Steven.Cardona
  */
 public class Game {
+
     private ArrayList<Player> players;
     private Board board;
     private int numberOfAttempts;
@@ -39,7 +40,6 @@ public class Game {
 
     public void initialAttempt() {
         Attempt initial = new Attempt(players, board);
-        attempts.add(initial);
         currentAttempt = initial;
     }
 
@@ -59,34 +59,35 @@ public class Game {
         return attempts;
     }
     
-    public Player executeValidations () {
-        ValidationGame validate = new ValidationGame("game1", players, board);
-        
-        if(validate != null){
-            initialAttempt();
-            return validate.getWinner();
+    public void getFinalWinner(){
+        for (Attempt attempt : attempts) {
+            System.out.println(attempt.getPlayerWinner().getName());
         }
-        
-        return null;
     }
-    
-    public void nextRound() {
 
+    public Player executeValidations() {
+        ValidationGame validate = new ValidationGame("game1", players, board);
+
+        if (validate.getWinner() != null) {
+            attempts.add(currentAttempt);
+        }
+
+        return validate.getWinner();
     }
 
     public void removeEmptySlot() {
         this.emptySlots -= 1;
     }
-    
+
     public void resetEmptySlots() {
-        this.emptySlots = 0;
+        this.emptySlots = 9;
     }
-    
-    public boolean isResetBoard (){
-        if(this.emptySlots == 0){
+
+    public boolean isResetBoard() {
+        if (this.emptySlots == 0) {
             board.resetBoard();
             return true;
-        }else{
+        } else {
             return false;
         }
     }

@@ -53,7 +53,13 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="60" style="1"/>
         </Property>
+        <Property name="actionCommand" type="java.lang.String" value="x_0_y_0"/>
+        <Property name="name" type="java.lang.String" value="x_0_y_0" noResource="true"/>
       </Properties>
+      <AccessibilityProperties>
+        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="x_0_y_0"/>
+        <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value="x_0_y_0"/>
+      </AccessibilityProperties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="col_0_row_0ActionPerformed"/>
       </Events>
@@ -68,7 +74,13 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="60" style="1"/>
         </Property>
+        <Property name="actionCommand" type="java.lang.String" value="x_0_y_1"/>
+        <Property name="name" type="java.lang.String" value="x_0_y_1" noResource="true"/>
       </Properties>
+      <AccessibilityProperties>
+        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="x_0_y_1"/>
+        <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value="x_0_y_1"/>
+      </AccessibilityProperties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="col_1_row_0ActionPerformed"/>
       </Events>
@@ -83,7 +95,13 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="60" style="1"/>
         </Property>
+        <Property name="actionCommand" type="java.lang.String" value="x_1_y_0"/>
+        <Property name="name" type="java.lang.String" value="x_1_y_0" noResource="true"/>
       </Properties>
+      <AccessibilityProperties>
+        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="x_1_y_0"/>
+        <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value="x_1_y_0"/>
+      </AccessibilityProperties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="col_0_row_1ActionPerformed"/>
       </Events>
@@ -98,7 +116,13 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="60" style="1"/>
         </Property>
+        <Property name="actionCommand" type="java.lang.String" value="x_0_y_2"/>
+        <Property name="name" type="java.lang.String" value="x_0_y_2" noResource="true"/>
       </Properties>
+      <AccessibilityProperties>
+        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="x_0_y_2"/>
+        <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value="x_0_y_2"/>
+      </AccessibilityProperties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="col_2_row_0ActionPerformed"/>
       </Events>
@@ -113,7 +137,13 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="60" style="1"/>
         </Property>
+        <Property name="actionCommand" type="java.lang.String" value="x_2_y_2"/>
+        <Property name="name" type="java.lang.String" value="x_2_y_2" noResource="true"/>
       </Properties>
+      <AccessibilityProperties>
+        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="x_2_y_2"/>
+        <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value="x_2_y_2"/>
+      </AccessibilityProperties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="col_2_row_2ActionPerformed"/>
       </Events>
@@ -128,7 +158,13 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="60" style="1"/>
         </Property>
+        <Property name="actionCommand" type="java.lang.String" value="x_1_y_1"/>
+        <Property name="name" type="java.lang.String" value="x_1_y_1" noResource="true"/>
       </Properties>
+      <AccessibilityProperties>
+        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="x_1_y_1"/>
+        <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value="x_1_y_1"/>
+      </AccessibilityProperties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="col_1_row_1ActionPerformed"/>
       </Events>
@@ -143,7 +179,13 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="60" style="1"/>
         </Property>
+        <Property name="actionCommand" type="java.lang.String" value="x_1_y_2"/>
+        <Property name="name" type="java.lang.String" value="x_1_y_2" noResource="true"/>
       </Properties>
+      <AccessibilityProperties>
+        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="x_1_y_2"/>
+        <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value="x_1_y_2"/>
+      </AccessibilityProperties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="col_2_row_1ActionPerformed"/>
       </Events>
@@ -158,7 +200,13 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="60" style="1"/>
         </Property>
+        <Property name="actionCommand" type="java.lang.String" value="x_2_y_1"/>
+        <Property name="name" type="java.lang.String" value="x_2_y_1" noResource="true"/>
       </Properties>
+      <AccessibilityProperties>
+        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="x_2_y_1"/>
+        <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value="x_2_y_1"/>
+      </AccessibilityProperties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="col_1_row_2ActionPerformed"/>
       </Events>
@@ -173,7 +221,13 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="60" style="1"/>
         </Property>
+        <Property name="actionCommand" type="java.lang.String" value="x_2_y_0"/>
+        <Property name="name" type="java.lang.String" value="x_2_y_0" noResource="true"/>
       </Properties>
+      <AccessibilityProperties>
+        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="x_2_y_0"/>
+        <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value="x_2_y_0"/>
+      </AccessibilityProperties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="col_0_row_2ActionPerformed"/>
       </Events>
