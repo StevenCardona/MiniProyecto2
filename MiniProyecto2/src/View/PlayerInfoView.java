@@ -5,7 +5,10 @@
  */
 package View;
 
+import Model.Figure;
+import Model.Player;
 import java.awt.BorderLayout;
+import java.util.ArrayList;
 import javax.swing.JPanel;
 
 /**
@@ -17,9 +20,17 @@ public class PlayerInfoView extends javax.swing.JPanel {
     /**
      * Creates new form PlayerInfoView
      */
-    public PlayerInfoView(JPanel container) {
+    public PlayerInfoView(JPanel container, int numberOfRounds, int numberOfPlayers) {
         initComponents();
         this.containerPanel = container;
+        
+        if(numberOfPlayers == 1){
+            labelPlayer2.setEnabled(false);
+            playerName2.setText("Machine");
+            playerName2.setEnabled(false);
+        }
+        
+       this.numberOfRounds = numberOfRounds;
     }
 
     /**
@@ -31,13 +42,15 @@ public class PlayerInfoView extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        labelPlayer1 = new javax.swing.JLabel();
+        labelPlayer2 = new javax.swing.JLabel();
         playerName2 = new javax.swing.JTextField();
         playerName1 = new javax.swing.JTextField();
         btnGame = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         btnBackHome = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setMaximumSize(new java.awt.Dimension(800, 450));
@@ -45,11 +58,11 @@ public class PlayerInfoView extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(800, 450));
         setRequestFocusEnabled(false);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel1.setText("JUGADOR 1");
+        labelPlayer1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        labelPlayer1.setText("JUGADOR 1");
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel2.setText("JUGADOR 2");
+        labelPlayer2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        labelPlayer2.setText("JUGADOR 2");
 
         playerName2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         playerName2.addActionListener(new java.awt.event.ActionListener() {
@@ -80,6 +93,12 @@ public class PlayerInfoView extends javax.swing.JPanel {
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        jLabel1.setText("O");
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        jLabel2.setText("X");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -94,9 +113,15 @@ public class PlayerInfoView extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(39, 39, 39)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(labelPlayer1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel1))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(labelPlayer2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel2)))
+                        .addGap(10, 10, 10)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(playerName2, javax.swing.GroupLayout.DEFAULT_SIZE, 432, Short.MAX_VALUE)
                             .addComponent(playerName1)))
@@ -114,13 +139,15 @@ public class PlayerInfoView extends javax.swing.JPanel {
                 .addComponent(jLabel3)
                 .addGap(88, 88, 88)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(playerName1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(labelPlayer1)
+                    .addComponent(playerName1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
                 .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(playerName2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
+                    .addComponent(labelPlayer2)
+                    .addComponent(playerName2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
                 .addComponent(btnGame, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30))
         );
@@ -132,7 +159,17 @@ public class PlayerInfoView extends javax.swing.JPanel {
 
     private void btnGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGameActionPerformed
         // TODO add your handling code here:
-        GameView view = new GameView(containerPanel);
+        String name1 = playerName1.getText();
+        String name2 = playerName2.getText();
+        
+        Player player1 = new Player(name1, Figure.O.name());
+        Player player2 = new Player(name2, Figure.X.name());
+        
+        ArrayList<Player> players = new ArrayList<Player>();
+        players.add(player1);
+        players.add(player2);
+        
+        GameView view = new GameView(containerPanel, numberOfRounds, players);
         view.setSize(800, 450);
         view.setLocation(0, 0);
 
@@ -155,12 +192,16 @@ public class PlayerInfoView extends javax.swing.JPanel {
     }//GEN-LAST:event_btnBackHomeActionPerformed
 
     private JPanel containerPanel;
+    private int numberOfPlayers = 2;
+    private int numberOfRounds = 1;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBackHome;
     private javax.swing.JButton btnGame;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel labelPlayer1;
+    private javax.swing.JLabel labelPlayer2;
     private javax.swing.JTextField playerName1;
     private javax.swing.JTextField playerName2;
     // End of variables declaration//GEN-END:variables

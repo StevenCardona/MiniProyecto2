@@ -50,7 +50,7 @@
                       <EmptySpace min="-2" pref="106" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="namePlayerOne" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="namePlayer2" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="namePlayerTwo" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -77,12 +77,12 @@
               </Group>
               <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="namePlayer2" max="32767" attributes="0"/>
+                  <Component id="namePlayerTwo" max="32767" attributes="0"/>
                   <Component id="labelScorePlayerTwo" min="-2" pref="44" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-              <Component id="btnHome" min="-2" pref="41" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
+              <Component id="btnHome" min="-2" pref="41" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -112,7 +112,7 @@
         <Property name="text" type="java.lang.String" value="JUGADOR 1"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="namePlayer2">
+    <Component class="javax.swing.JLabel" name="namePlayerTwo">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="36" style="0"/>
