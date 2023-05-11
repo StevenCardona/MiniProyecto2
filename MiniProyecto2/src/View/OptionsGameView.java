@@ -5,8 +5,11 @@
  */
 package View;
 
+import Controller.Game;
 import java.awt.BorderLayout;
+import java.awt.Color;
 import javax.swing.JPanel;
+import javax.swing.border.LineBorder;
 
 /**
  *
@@ -20,6 +23,8 @@ public class OptionsGameView extends javax.swing.JPanel {
     public OptionsGameView(JPanel container) {
         initComponents();
         this.containerPanel = container;
+        this.btnTwoPlayers.setBorder(new LineBorder(Color.CYAN));
+        this.btnOneRound.setBorder(new LineBorder(Color.CYAN));
     }
 
     /**
@@ -125,19 +130,21 @@ public class OptionsGameView extends javax.swing.JPanel {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnOnePlayer, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnOneRound)
-                                .addGap(122, 122, 122)
-                                .addComponent(btnTwoRounds))
-                            .addComponent(btnOnePlayer, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(82, 82, 82)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(btnOneRound, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(49, 49, 49)
+                                .addComponent(btnTwoRounds, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 5, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(29, 29, 29)
-                                .addComponent(btnThreeRounds)
-                                .addGap(120, 120, 120)
-                                .addComponent(btnFourRounds))
-                            .addComponent(btnTwoPlayers, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(65, 65, 65)
+                                .addComponent(btnTwoPlayers))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(49, 49, 49)
+                                .addComponent(btnThreeRounds, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(53, 53, 53)
+                                .addComponent(btnFourRounds, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(100, 100, 100))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -150,19 +157,24 @@ public class OptionsGameView extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(67, 67, 67)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnOnePlayer)
-                    .addComponent(btnTwoPlayers))
-                .addGap(75, 75, 75)
-                .addComponent(jLabel1)
-                .addGap(48, 48, 48)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnOnePlayer)
+                            .addComponent(btnTwoPlayers))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(75, 75, 75)
+                                .addComponent(jLabel1)
+                                .addGap(101, 101, 101))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(btnFourRounds, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnThreeRounds, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnOneRound)
-                        .addComponent(btnTwoRounds))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnFourRounds)
-                        .addComponent(btnThreeRounds)))
+                        .addComponent(btnOneRound, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnTwoRounds, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnBack, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -173,6 +185,11 @@ public class OptionsGameView extends javax.swing.JPanel {
 
     private void btnTwoRoundsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTwoRoundsActionPerformed
         // TODO add your handling code here:
+        this.numberOfRounds = 2;
+        this.btnFourRounds.setBorder(null);
+        this.btnOneRound.setBorder(null);
+        this.btnTwoRounds.setBorder(new LineBorder(Color.CYAN));
+        this.btnThreeRounds.setBorder(null);
     }//GEN-LAST:event_btnTwoRoundsActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -189,7 +206,7 @@ public class OptionsGameView extends javax.swing.JPanel {
 
     private void btnGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGameActionPerformed
         // TODO add your handling code here:
-        PlayerInfoView view = new PlayerInfoView(containerPanel);
+        PlayerInfoView view = new PlayerInfoView(containerPanel, numberOfRounds, numberOfPlayers);
         view.setSize(800, 450);
         view.setLocation(0, 0);
 
@@ -201,25 +218,50 @@ public class OptionsGameView extends javax.swing.JPanel {
 
     private void btnOneRoundActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOneRoundActionPerformed
         // TODO add your handling code here:
+        this.numberOfRounds = 1;
+        this.btnFourRounds.setBorder(null);
+        this.btnOneRound.setBorder(new LineBorder(Color.CYAN));
+        this.btnTwoRounds.setBorder(null);
+        this.btnThreeRounds.setBorder(null);
     }//GEN-LAST:event_btnOneRoundActionPerformed
 
     private void btnThreeRoundsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThreeRoundsActionPerformed
         // TODO add your handling code here:
+        this.numberOfRounds = 3;
+        this.btnFourRounds.setBorder(null);
+        this.btnOneRound.setBorder(null);
+        this.btnTwoRounds.setBorder(null);
+        this.btnThreeRounds.setBorder(new LineBorder(Color.CYAN));
     }//GEN-LAST:event_btnThreeRoundsActionPerformed
 
     private void btnFourRoundsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFourRoundsActionPerformed
         // TODO add your handling code here:
+        this.numberOfRounds = 4;
+        this.btnFourRounds.setBorder(new LineBorder(Color.CYAN));
+        this.btnOneRound.setBorder(null);
+        this.btnTwoRounds.setBorder(null);
+        this.btnThreeRounds.setBorder(null);
     }//GEN-LAST:event_btnFourRoundsActionPerformed
 
     private void btnOnePlayerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOnePlayerActionPerformed
         // TODO add your handling code here:
+        this.numberOfPlayers = 1;
+        this.btnTwoPlayers.setBorder(null);
+        this.btnOnePlayer.setBorder(new LineBorder(Color.CYAN));
     }//GEN-LAST:event_btnOnePlayerActionPerformed
 
     private void btnTwoPlayersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTwoPlayersActionPerformed
         // TODO add your handling code here:
+        this.numberOfPlayers = 2;
+        this.btnTwoPlayers.setBorder(new LineBorder(Color.CYAN));
+        this.btnOnePlayer.setBorder(null);
     }//GEN-LAST:event_btnTwoPlayersActionPerformed
 
     private JPanel containerPanel;
+    private Game game;
+    private int numberOfPlayers = 2;
+    private int numberOfRounds = 1;
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnFourRounds;

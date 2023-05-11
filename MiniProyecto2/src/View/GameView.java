@@ -5,7 +5,14 @@
  */
 package View;
 
+import Controller.Game;
+import Controller.ValidationGame;
+import Model.Figure;
+import Model.Player;
 import java.awt.BorderLayout;
+import java.awt.Color;
+import java.util.ArrayList;
+import javax.swing.JButton;
 import javax.swing.JPanel;
 
 /**
@@ -17,9 +24,20 @@ public class GameView extends javax.swing.JPanel {
     /**
      * Creates new form GameView
      */
-    public GameView(JPanel container) {
+    public GameView(JPanel container, int numberOfRounds, ArrayList<Player> players) {
         initComponents();
         this.containerPanel = container;
+        this.game = new Game(numberOfRounds, players);
+        game.initialAttempt();
+
+        playerName1.setText(players.get(0).getName());
+        playerName2.setText(players.get(1).getName());
+        playerName1Symbol.setText(players.get(0).getFigure().toString());
+        playerName2Symbol.setText(players.get(1).getFigure().toString());
+        roundsValue.setText(String.valueOf(numberOfRounds));
+
+        game.getCurrentAttempt().getCurrentPlayer();
+        setPlayerTurn();
     }
 
     /**
@@ -32,11 +50,29 @@ public class GameView extends javax.swing.JPanel {
     private void initComponents() {
 
         btnBackHome = new javax.swing.JButton();
+        col_0_row_0 = new javax.swing.JButton();
+        col_1_row_0 = new javax.swing.JButton();
+        col_0_row_1 = new javax.swing.JButton();
+        col_2_row_0 = new javax.swing.JButton();
+        col_2_row_2 = new javax.swing.JButton();
+        col_1_row_1 = new javax.swing.JButton();
+        col_2_row_1 = new javax.swing.JButton();
+        col_1_row_2 = new javax.swing.JButton();
+        col_0_row_2 = new javax.swing.JButton();
+        playerName1 = new javax.swing.JLabel();
+        playerName2 = new javax.swing.JLabel();
+        playerValue1 = new javax.swing.JLabel();
+        playerValue2 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        roundsValue = new javax.swing.JLabel();
+        playerName1Symbol = new javax.swing.JLabel();
+        playerName2Symbol = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setMaximumSize(new java.awt.Dimension(800, 450));
         setMinimumSize(new java.awt.Dimension(800, 450));
         setPreferredSize(new java.awt.Dimension(800, 450));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnBackHome.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btnBackHome.setText("Salir");
@@ -45,23 +81,107 @@ public class GameView extends javax.swing.JPanel {
                 btnBackHomeActionPerformed(evt);
             }
         });
+        add(btnBackHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(717, 11, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(717, Short.MAX_VALUE)
-                .addComponent(btnBackHome)
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btnBackHome)
-                .addContainerGap(408, Short.MAX_VALUE))
-        );
+        col_0_row_0.setFont(new java.awt.Font("Tahoma", 1, 60)); // NOI18N
+        col_0_row_0.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                col_0_row_0ActionPerformed(evt);
+            }
+        });
+        add(col_0_row_0, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 60, 132, 96));
+
+        col_1_row_0.setFont(new java.awt.Font("Tahoma", 1, 60)); // NOI18N
+        col_1_row_0.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                col_1_row_0ActionPerformed(evt);
+            }
+        });
+        add(col_1_row_0, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 60, 132, 96));
+
+        col_0_row_1.setFont(new java.awt.Font("Tahoma", 1, 60)); // NOI18N
+        col_0_row_1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                col_0_row_1ActionPerformed(evt);
+            }
+        });
+        add(col_0_row_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 170, 132, 96));
+
+        col_2_row_0.setFont(new java.awt.Font("Tahoma", 1, 60)); // NOI18N
+        col_2_row_0.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                col_2_row_0ActionPerformed(evt);
+            }
+        });
+        add(col_2_row_0, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 60, 132, 96));
+
+        col_2_row_2.setFont(new java.awt.Font("Tahoma", 1, 60)); // NOI18N
+        col_2_row_2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                col_2_row_2ActionPerformed(evt);
+            }
+        });
+        add(col_2_row_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 280, 132, 96));
+
+        col_1_row_1.setFont(new java.awt.Font("Tahoma", 1, 60)); // NOI18N
+        col_1_row_1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                col_1_row_1ActionPerformed(evt);
+            }
+        });
+        add(col_1_row_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 170, 132, 96));
+
+        col_2_row_1.setFont(new java.awt.Font("Tahoma", 1, 60)); // NOI18N
+        col_2_row_1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                col_2_row_1ActionPerformed(evt);
+            }
+        });
+        add(col_2_row_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 170, 132, 96));
+
+        col_1_row_2.setFont(new java.awt.Font("Tahoma", 1, 60)); // NOI18N
+        col_1_row_2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                col_1_row_2ActionPerformed(evt);
+            }
+        });
+        add(col_1_row_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 280, 132, 96));
+
+        col_0_row_2.setFont(new java.awt.Font("Tahoma", 1, 60)); // NOI18N
+        col_0_row_2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                col_0_row_2ActionPerformed(evt);
+            }
+        });
+        add(col_0_row_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 280, 132, 96));
+
+        playerName1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        add(playerName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 80, 20));
+
+        playerName2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        add(playerName2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 80, 20));
+
+        playerValue1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        playerValue1.setText("0");
+        add(playerValue1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 70, 20, -1));
+
+        playerValue2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        playerValue2.setText("0");
+        add(playerValue2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 100, 20, -1));
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel5.setText("Rondas");
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+
+        roundsValue.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        roundsValue.setText("0");
+        add(roundsValue, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, -1, -1));
+
+        playerName1Symbol.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        add(playerName1Symbol, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, -1, -1));
+
+        playerName2Symbol.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        add(playerName2Symbol, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackHomeActionPerformed
@@ -76,9 +196,159 @@ public class GameView extends javax.swing.JPanel {
         containerPanel.repaint();
     }//GEN-LAST:event_btnBackHomeActionPerformed
 
-    private JPanel containerPanel;
+    private void col_0_row_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_col_0_row_1ActionPerformed
+        // TODO add your handling code here:
+        setFigureInButton(col_0_row_1);
+        validateBoard(1, 0);
 
+    }//GEN-LAST:event_col_0_row_1ActionPerformed
+
+    private void col_0_row_0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_col_0_row_0ActionPerformed
+        // TODO add your handling code here:
+        setFigureInButton(col_0_row_0);
+        validateBoard(0, 0);
+
+    }//GEN-LAST:event_col_0_row_0ActionPerformed
+
+    private void col_1_row_0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_col_1_row_0ActionPerformed
+        // TODO add your handling code here:
+        setFigureInButton(col_1_row_0);
+        validateBoard(0, 1);
+
+    }//GEN-LAST:event_col_1_row_0ActionPerformed
+
+    private void col_2_row_0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_col_2_row_0ActionPerformed
+        // TODO add your handling code here:
+        setFigureInButton(col_2_row_0);
+        validateBoard(0, 2);
+
+    }//GEN-LAST:event_col_2_row_0ActionPerformed
+
+    private void col_1_row_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_col_1_row_1ActionPerformed
+        // TODO add your handling code here:
+        validateBoard(1, 1);
+        setFigureInButton(col_1_row_1);
+    }//GEN-LAST:event_col_1_row_1ActionPerformed
+
+    private void col_2_row_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_col_2_row_1ActionPerformed
+        // TODO add your handling code here:
+        setFigureInButton(col_2_row_1);
+        validateBoard(1, 2);
+
+    }//GEN-LAST:event_col_2_row_1ActionPerformed
+
+    private void col_0_row_2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_col_0_row_2ActionPerformed
+        // TODO add your handling code here:
+        setFigureInButton(col_0_row_2);
+        validateBoard(2, 0);
+
+    }//GEN-LAST:event_col_0_row_2ActionPerformed
+
+    private void col_1_row_2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_col_1_row_2ActionPerformed
+        // TODO add your handling code here:
+        setFigureInButton(col_1_row_2);
+        validateBoard(2, 1);
+
+    }//GEN-LAST:event_col_1_row_2ActionPerformed
+
+    private void col_2_row_2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_col_2_row_2ActionPerformed
+        // TODO add your handling code here:
+        setFigureInButton(col_2_row_2);
+        validateBoard(2, 2);
+    }//GEN-LAST:event_col_2_row_2ActionPerformed
+
+    private void validateBoard(int x, int y) {
+        game.getCurrentAttempt().setSymbolInBoard(game.getCurrentAttempt().getCurrentPlayer().getFigure(), x, y);
+
+        
+        Player winnerPlayer = game.executeValidations();
+
+        if (winnerPlayer != null) {
+            System.out.println("Ganador " + winnerPlayer.getName());
+
+            if (game.getNumberOfAttempts() == game.getAttempts().size()) {
+                System.out.println("juego terminado " + game.getNumberOfAttempts());
+            } else {
+                incrementScore(winnerPlayer);
+                resetBoardGUI();
+            }
+        } else {
+            game.getCurrentAttempt().nextTurn();
+
+            boolean resetBoard = game.isResetBoard();
+            if (resetBoard) {
+                resetBoardGUI();
+                game.resetEmptySlots();
+            }
+        }
+    }
+
+    private void setPlayerTurn() {
+        if (game.getCurrentAttempt().getCurrentPlayer().getName().equals(playerName1.getText())) {
+            playerName1.setForeground(Color.CYAN);
+            playerName1Symbol.setForeground(Color.CYAN);
+
+            playerName2.setForeground(Color.BLACK);
+            playerName2Symbol.setForeground(Color.BLACK);
+        } else {
+            playerName2.setForeground(Color.CYAN);
+            playerName2Symbol.setForeground(Color.CYAN);
+
+            playerName1.setForeground(Color.BLACK);
+            playerName1Symbol.setForeground(Color.BLACK);
+        }
+    }
+
+    private void setFigureInButton(JButton button) {
+        if (button.getText().isEmpty()) {
+            setPlayerTurn();
+            game.removeEmptySlot();
+            button.setText(game.getCurrentAttempt().getCurrentPlayer().getFigure());
+        }
+    }
+
+    private void resetBoardGUI() {
+        col_0_row_0.setText("");
+        col_0_row_1.setText("");
+        col_0_row_2.setText("");
+        col_1_row_0.setText("");
+        col_1_row_1.setText("");
+        col_1_row_2.setText("");
+        col_2_row_0.setText("");
+        col_2_row_1.setText("");
+        col_2_row_2.setText("");
+    }
+
+    private void incrementScore(Player player) {
+        if (player.getName().equals(playerName1.getText())) {
+            int increment = Integer.parseInt(playerName1Symbol.getText()) + 1;
+            playerName1Symbol.setText(String.valueOf(increment));
+        } else {
+            int increment = Integer.parseInt(playerName2Symbol.getText()) + 1;
+            playerName2Symbol.setText(String.valueOf(increment));
+        }
+    }
+
+    private JPanel containerPanel;
+    private Game game;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBackHome;
+    private javax.swing.JButton col_0_row_0;
+    private javax.swing.JButton col_0_row_1;
+    private javax.swing.JButton col_0_row_2;
+    private javax.swing.JButton col_1_row_0;
+    private javax.swing.JButton col_1_row_1;
+    private javax.swing.JButton col_1_row_2;
+    private javax.swing.JButton col_2_row_0;
+    private javax.swing.JButton col_2_row_1;
+    private javax.swing.JButton col_2_row_2;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel playerName1;
+    private javax.swing.JLabel playerName1Symbol;
+    private javax.swing.JLabel playerName2;
+    private javax.swing.JLabel playerName2Symbol;
+    private javax.swing.JLabel playerValue1;
+    private javax.swing.JLabel playerValue2;
+    private javax.swing.JLabel roundsValue;
     // End of variables declaration//GEN-END:variables
 }
